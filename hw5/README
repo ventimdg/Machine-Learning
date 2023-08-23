@@ -1,0 +1,12 @@
+Dominic Ventimiglia
+3035572695
+Kaggle Username: Dominic Ventimiglia
+
+
+Random Seed: I used random seeds in a lot of places. In some places I used the number 14. In other places, I used iteration 
+variables like i, or the depth of the tree, which helped ensure that when trying to buld trees of different depths, they would all not
+start at the exact same random split.
+
+Instructions:
+
+In cell 3, change the file paths to match the path on your computer. There are three paths you have to change. In order to reproduce the kaggle submission, run the first 4 cells of the .ipynb. In order to produce the spam accuracy graph, just run cells 1,2, and 5. This takes a while, anywhere from 5-10minutes depending on your computer. In order to produce the titanic visualization, run cells 1,2, and 6.

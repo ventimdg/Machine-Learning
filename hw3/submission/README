@@ -1,0 +1,16 @@
+Dominic Ventimiglia 
+3035572695
+Kaggle Username:Dominic Ventimiglia
+
+In order to reproduce my results:
+
+(I did no modift featurizy.py, all random seeds are in the code. I used 10 and 14 for different questions)
+
+For all Questions Besides 8:
+1.Make sure you run the import section 
+2.Just run the ipynb cell for the question part you want to run. Following the direction for #8 will run all cells, which will produce all outputs, so you can skip this and just go to the directions below to generate all outputs for all questions.
+
+For number 8
+1.Scroll down to quesiton #8 in the ipynb
+2.Change the loads of the spam_data and mnist_data to have the correct file path. There are only two loads, which are directly under the Part 1 label
+3.Just press the "run all cells" button for the ipynb, both csv files should be created. Should take around 2-4 minutes depending on your computer. This will run all other cells as well, which should be pretty quick, but if you don't want to run all cells, just run every single cell from the top starting from the Question #8 markdown box. However, pressing the run all cell option will guarantee that everything works for all questions, since some of the cells are dependent on variables created in cells above them.

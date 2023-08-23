@@ -1,0 +1,60 @@
+\Question{Gaussian Kernels}
+
+In this question, we will look at training a binary classifier with a Gaussian kernel.
+Specifically, given a labeled dataset $S = \{(x_i, y_i)\}_{i=1}^{n} \subseteq \R^{d} \times \{\pm 1\}$
+and a kernel function $k(x_1, x_2)$, we consider classifiers of the form
+\begin{align*}
+  \widehat{f}(x) = \mathrm{sign}\left( \sum_{i=1}^{n} a_i \, k(x_i, x)  \right) \:,
+\end{align*}
+where we define $\mathrm{sign}(u)$ to be $1$ if $u\geq 0$ or $-1$ if $u< 0$.
+To choose the weights $a_i, i=1, ..., n$, we consider the least-squares problem
+\begin{align}
+  a \in \arg\min_{a \in \R^n} \| K a - y \|_2^2 \:, \label{eq:krr}
+\end{align}
+where $K = (k(x_i, x_j))_{i=1,j=1}^{n}$ is the kernel matrix and $y$ is the vector of
+labels. We will work with the Gaussian kernel. Recall that the Gaussian kernel
+with bandwidth $\sigma > 0$ is
+\begin{align*}
+  k(x_i, x_j) = \exp\left( - \frac{\| x_i - x_j \|^2_2}{2\sigma^2} \right) \:.
+\end{align*}
+
+\begin{Parts}
+
+\Part When the bandwidth parameter $\sigma \to 0$, observe that the off-diagonal entries
+of the kernel matrix $K$ tend to zero.
+Consider a two-point dataset $S$ ($n=2$) with $(x_1, y_1) = (1, 1)$ and $(x_2, y_2) = (-1, -1)$.
+If we assume that as $\sigma \to 0$, the off-diagonal entries of $K$ approach zero (and the diagonal entries are unmodified),
+what is the optimal solution of $a$ for the optimization problem \eqref{eq:krr}
+and what is the classifier $\widehat{f}(x)$?
+
+\begin{solution}
+Your answer here.
+\end{solution}
+
+\Part Now we consider the regime when the bandwidth parameter $\sigma \to \infty$.
+Observe in this regime, the off-diagonal entries of the kernel matrix $K$ approach one.
+{Given a dataset $S$, suppose we solve the optimization problem \eqref{eq:krr}
+with all the off-diagonal entries of $K$ equal to one (and the diagonal entries unmodified).}
+Prove that if the number of $+1$ labels in $S$ equals the number of $-1$ labels in $S$,
+then $a=\vec{0}$ is an optimal solution of \eqref{eq:krr}.
+What is the resulting classifier $\widehat{f}(x)$?
+
+\begin{solution}
+Your answer here.
+\end{solution}
+
+\Part Now we consider the regime when the bandwidth parameter is large but finite.
+Consider again the two-point dataset $S$ with $(x_1, y_1) = (1, 1)$ and $(x_2, y_2) = (-1, -1)$.
+When $\sigma \gg 1$, we can approximate $k(x_1, x_2) \approx 1 + \frac{x_1 x_2}{2\sigma^2}$.
+Show that the solution of the optimization problem \eqref{eq:krr}
+with the kernel $k_a(x_1, x_2) = 1 + \frac{x_1 x_2}{2\sigma^2}$ is
+$a = (\sigma^2, -\sigma^2)$.
+What is the classifier $\widehat{f}(x)$?
+
+\emph{Hint: By Cramer's Rule, the inverse of a $2 \times 2$ matrix is $\begin{bmatrix} a & b \\ c & d \end{bmatrix}^{-1} = \frac{1}{ad-bc} \begin{bmatrix} d & -b \\ -c & a \end{bmatrix}$.}
+
+\begin{solution}
+Your answer here.
+\end{solution}
+
+\end{Parts}

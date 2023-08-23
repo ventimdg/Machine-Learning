@@ -1,0 +1,6 @@
+Dominic Ventimiglia 
+3035572695
+
+Instructions: All you have to do to reproduce my results is run the appropriate .py files. If you want to reproduce the graphs in part 4d or 4f,
+ you will need to comment out the scale paramamter in world_values_pipelines.py to reproduce 4f, and if you want to reproduce part 4d, you will need to 
+ to switch the knn__weights back to uniform from distance in world_values_parameters.py, while keeping the change you just made to reproduce 4f.

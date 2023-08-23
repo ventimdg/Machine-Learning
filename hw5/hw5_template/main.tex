@@ -1,0 +1,111 @@
+\documentclass[11pt]{article}
+\usepackage{header_problems}
+\usepackage{header_template}
+\usepackage{txfonts}
+\usepackage{dirtree}
+\usepackage{listings}
+\usepackage{minted}
+\usepackage[autostyle]{csquotes} 
+\def\title{HW5}
+
+\begin{document}
+\maketitle
+
+\textbf{Due: Friday, March 24 at 11:59 pm}
+
+\begin{enumerate}[]
+  \item
+    Submit your predictions for the test sets to Kaggle as early as possible. Include your Kaggle scores in your write-up (see below).
+    The Kaggle competition for this assignment can be found at
+    \begin{itemize}
+        \item Spam: \url{https://www.kaggle.com/c/hw5-spam-competition-cs189sp23}
+        \item Titanic: \url{https://www.kaggle.com/c/hw5-titantic-competition-cs189sp23}
+    \end{itemize}
+
+ \item \underline{Write-up}: Submit your solution in {\bf PDF} format to
+		``Homework 5 Write-Up'' on Gradescope.
+	\begin{itemize}    
+		\item State your name, and if you have discussed this
+			homework with anyone (other than GSIs), list the names \emph{of them all}. 
+		\item Begin the solution for each question in a new page. 
+			Do not put content for different questions in the same page.
+			You may use multiple pages for a question if required.
+		\item If you include figures, graphs or tables for a question,
+			any explanations should accompany them in \emph{the same page}.
+			Do NOT put these in an appendix!
+		\item \textbf{Only PDF uploads to Gradescope will be accepted}. You may
+			use \LaTeX\ or Word to typeset your solution or scan a neatly handwritten
+			solution to produce the PDF. 
+		\item \textbf{Replicate all your code in an appendix}. 
+			Begin code for each coding question in a fresh page.
+			Do not put code from multiple questions in the same page.
+			When you upload this PDF on Gradescope, \emph{make sure}
+			that you assign the relevant pages of your code from appendix to correct questions.
+	\end{itemize}
+	\item \underline{Code}: Additionally, submit all your code as a .zip file
+	to ``Homework 5 Code'' on Gradescope.
+	\begin{itemize}    
+		\item \textbf{Set a seed for all pseudo-random numbers generated in your code.}
+			This ensures your results are replicated when readers run your code.
+		\item Include a README with your name, student ID,
+			the values of the random seed (above) you used, and instructions
+			for running (and compiling, if appropriate) your code.
+		\item Do NOT provide any data files, but supply instructions on how to
+			add data to your code.
+		\item Code that the readers can't run because it requires exorbitant memory or execution time might not receive marks.
+		\item Code submitted here must match that in the PDF Write-up,
+			and produce the \emph{exact} output submitted to Kaggle.
+			Inconsistent or incomplete code might not receive marks.
+	\end{itemize}
+\end{enumerate}
+
+\pagebreak
+
+\newpage
+\input{problems/honorcode}
+
+\newpage
+\input{problems/ensemble_motivation}
+
+\newpage
+\input{problems/gaussian_kernel}
+
+\newpage
+\input{problems/dtree}
+
+\newpage
+\section*{Submission Checklist}
+Please ensure you have completed the following before your final submission.
+\subsection*{At the beginning of your writeup...}
+\begin{enumerate}
+    \item Have you copied and hand-signed the honor code specified in Question 1?
+    \item Have you listed all students (Names and ID numbers) that you collaborated with?
+\end{enumerate}
+\subsection*{In your writeup for Question 4...}
+\begin{enumerate}
+\item Have you included your \textbf{Kaggle Score} and \textbf{Kaggle Username}?
+\item Have you included your generated plots and visualizations?
+
+
+\end{enumerate}
+\subsection*{At the end of the writeup...}
+\begin{enumerate}
+
+\item Have you provided a code appendix including all code you wrote in solving the homework?
+\end{enumerate}
+\subsection*{Executable Code Submission}
+\begin{enumerate}
+    \item Have you created an archive containing all ``.py'' files that you wrote or modified to generate your homework solutions?
+    \item Have you removed all data and extraneous files from the archive?
+    \item Have you included a \texttt{README} in your archive containing any special instructions to reproduce your results?
+\end{enumerate}
+\subsection*{Submissions}
+\begin{enumerate}
+    \item Have you submitted your written solutions to the Gradescope assignment titled \textbf{HW5  Write-Up} and selected pages appropriately?
+    \item Have you submitted your executable code archive to the Gradescope assignment titled \textbf{HW5 Code}?
+    \item Have you submitted your test set predictions for \textbf{Spam} and \textbf{Titanic} dataset to the appropriate Kaggle challenges?
+    \item Is your Kaggle submission in integer format? Submissions in decimal format will recieve a score of zero!
+\end{enumerate}
+Congratulations! You have completed Homework 5.
+
+\end{document}

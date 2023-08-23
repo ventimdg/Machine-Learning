@@ -1,0 +1,20 @@
+Dominic Ventimiglia
+3035572695
+Kaggle Username: Dominic Ventimiglia
+
+Instructions:
+
+Neural Network Functions: Questions 4-6 (Excluding 6.1)
+I have only provided you the neural networks files that I have modified. Download the homework file from the website, replace the files in the neural networks folder with the ones I provided, and just run the desired tests. For question 5, just fill in the hyperparemeters that you want to cross check. I have not provided the train_ffnn.py file because I made no modifcations to it, just changed the hyperparameters for every test. 
+
+Einsum (6.1):
+Just run the einsum.py file. It will automatically produce the outputs shown 
+
+Question 7:
+Make sure to run the very first cell to load and import all the proper packages.
+Pick the task you want to reproduce and run all the cells in order under that task. All outputs will reproduced as desired. Make sure the file pathing is correct under the kaggle submission portion for task 7.2
+
+• Note for the kaggle submission, I cannot reproduce the submission with the higher score. I accidentally submitted my the higher submission without setting a random seed and I cannot delete the submission. Setting a random seed has resulted in me producing slightly different results. The 0.76366 submission is the one my code can reproduce. 
+
+
+

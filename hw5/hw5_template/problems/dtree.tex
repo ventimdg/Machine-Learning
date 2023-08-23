@@ -1,0 +1,209 @@
+\Question{Decision Trees for Classification}
+
+In this problem, you will implement decision trees and random forests for classification on two datasets: 1)~the spam dataset and 2)~a Titanic dataset to predict survivors of the infamous disaster. The data is with the assignment. See the Appendix for more information on its contents and some suggestions on data structure design.
+
+In lectures, you were given a basic introduction to decision trees and how such trees are trained. You were also introduced to random forests. Feel free to research different decision tree techniques online. You do not have to implement boosting (which we will learn late this semester), although it might help with Kaggle.
+
+For your convenience, we provide starter code which includes preprocessing and some decision tree functionality already implemented. Feel free to use (or not to use) this code in your implementation. 
+
+\subsection{\bf  Implement Decision Trees}
+
+We expect you to implement the tree data structure yourself; you are not allowed to use a pre-existing decision tree implementation. The Titanic dataset is not ``cleaned''---that is, there are missing values---so you can use external libraries for data preprocessing and tree visualization (in fact, we recommend it). Removing examples with missing features is not a good option; there is not enough data to justify throwing some of it away. Be aware that some of the later questions might require special functionality that you need to implement (e.g., maximum depth stopping criterion, visualizing the tree, tracing the path of a sample point through the tree). You can use any programming language you wish as long as we can read and run your code with minimal effort. If you choose to use our starter code, a skeleton structure of the decision tree implementation is provided, and you will decide how to fill it in.  In this part of your writeup, \textbf{include your decision tree code.}
+
+\begin{solution}
+Your solution here.
+\end{solution}
+
+\subsection{\bf  Implement a Random Forest}
+
+You are not allowed to use any off-the-shelf random forest implementation. If you architected your code well, this part should be a (relatively) easy encapsulation of the previous part. In this part of your writeup, \textbf{include your random forest code.}
+
+\begin{solution}
+Your solution here.
+\end{solution}
+
+\subsection{\bf  Describe implementation details}
+
+We aren't looking for an essay; 1--2 sentences per question is enough.
+\begin{enumerate}
+	\item How did you deal with categorical features and missing values?
+	\item What was your stopping criterion?
+	\item How did you implement random forests?
+	\item Did you do anything special to speed up training?
+	\item Anything else cool you implemented?
+\end{enumerate}
+
+\begin{solution}
+Your solution here.
+\end{solution}
+
+\subsection{\bf  Performance Evaluation}
+
+For each of the 2 datasets, train both a decision tree and random forest and report your training and validation accuracies. You should be reporting 8 numbers (2 datasets $\times$ 2 classifiers $\times$ training/validation). In addition, for both datasets, train your best model and submit your predictions to Kaggle. Include your Kaggle display name and your public scores on each dataset. You should be reporting 2 Kaggle scores.
+
+\begin{solution}
+Your solution here.
+\end{solution}
+
+
+\subsection{\bf  Writeup Requirements for the Spam Dataset}
+
+\begin{enumerate}
+	\item (Optional) If you use any other features or feature transformations, explain what you did in your report. You may choose to use something like bag-of-words. You can implement any custom feature extraction code in \verb+featurize.py+, which will save your features to a \verb+.mat+ file.
+
+	\item For your decision tree, and for a data point of your choosing from each class (spam and ham), state the splits (i.e., which feature and which value of that feature to split on) your decision tree made to classify it. An example of what this might look like:
+	\begin{enumerate}
+		\item (``viagra") $\geq$ 2
+		\item (``thanks") $<$ 1
+		\item (``nigeria") $\geq$ 3
+		\item Therefore this email was spam.
+	\end{enumerate}
+
+	\begin{enumerate}
+		\item (``budget") $\geq$ 2
+		\item (``spreadsheet") $\geq$ 1
+		\item Therefore this email was ham.
+	\end{enumerate}
+	
+    \begin{solution}
+    Your solution here.
+    \end{solution}
+    
+    \item For random forests, find and state the most common splits made at the root node of the trees. For example:
+	\begin{enumerate}
+		\item (``viagra") $\geq$ 3 (20 trees)
+		\item (``thanks") $<$ 4 (15 trees)
+		\item (``nigeria") $\geq$ 1 (5 trees)
+	\end{enumerate}
+
+
+
+	\begin{solution}
+        Your solution here.
+	\end{solution}
+	
+	\item Generate a random 80/20 training/validation split. Train decision trees with varying maximum depths (try going from depth = 1 to depth = 40) with all other hyperparameters fixed. Plot your validation accuracies as a function of the depth. Which depth had the highest validation accuracy? Write 1--2 sentences explaining the behavior you observe in your plot. If you find that you need to plot more depths, feel free to do so.
+ 
+        \begin{solution}
+        Your solution here.
+        \end{solution}
+\end{enumerate}
+
+\subsection{\bf  Writeup Requirements for the Titanic Dataset}
+
+	Train a very shallow decision tree (for example, a depth 3 tree, although you may choose any depth that looks good) and visualize your tree. Include for each non-leaf node the feature name and the split rule, and include for leaf nodes the class your decision tree would assign. You can use any visualization method you want, from simple printing to an external library; the \texttt{rcviz} library on github works well.
+	
+\begin{solution}
+Your solution here
+\end{solution}
+
+
+\newpage
+
+\appendix
+\section{Appendix}
+
+\subsection*{Data Processing for Titanic}
+
+Here's a brief overview of the fields in the Titanic dataset. You will need to preprocess the dataset into a form usable by your decision tree code.
+
+\begin{enumerate}
+\item survived: the label we want to predict. 1 indicates the person survived, whereas 0 indicates the person died.
+\item pclass: Measure of socioeconomic status. 1 is upper, 2 is middle, 3 is lower.
+\item age: Fractional if less than 1.
+\item sex: Male/female.
+\item sibsp: Number of siblings/spouses aboard the Titanic.
+\item parch: Number of parents/children aboard the Titanic.
+\item ticket: Ticket number.
+\item fare: Fare.
+\item cabin: Cabin number.
+\item embarked: Port of embarkation (C = Cherbourg, Q = Queenstown, S = Southampton)
+\end{enumerate}
+
+You will face two challenges you did not have to deal with in previous datasets:
+\begin{enumerate}
+\item Categorical variables. Most of the data you've dealt with so far has been continuous-valued. Some features in this dataset represent types/categories. Here are two possible ways to deal with categorical variables:
+
+\begin{enumerate}
+  \item (Easy) In the feature extraction phase, map categories to binary variables. For example suppose feature 2 takes on three possible values: `TA', `lecturer', and `professor'. In the data matrix, these categories would be mapped to three binary variables. These would be columns 2, 3, and 4 of the data matrix. Column 2 would be a boolean feature $\{0, 1\}$ representing the TA category, and so on. In other words, `TA' is represented by $[1, 0, 0]$, `lecturer' is represented by $[0, 1, 0]$, and `professor' is represented by $[0, 0, 1]$. Note that this expands the number of columns in your data matrix. This is called ``vectorizing,'' or ``one-hot encoding'' the categorical feature.
+
+  \item (Hard, but more generalizable) Keep the categories as strings or map the categories to indices (e.g. `TA', `lecturer', `professor' get mapped to $0, 1, 2$). Then implement functionality in decision trees to determine split rules based on the subsets of categorical variables that maximize information gain. You cannot treat these as normal continuous-valued features because ordering has no meaning for these categories (the fact that $0 < 1 < 2$ has no significance when $0, 1, 2$ are discrete categories).
+\end{enumerate}
+
+\item Missing values. Some data points are missing features. In the \verb+csv+ files, these are represented by the value `\verb+?+'. You have three approaches:
+  
+  \begin{enumerate}
+  	\item (Easiest) If a data point is missing some features, remove it from the data matrix (\textbf{this is useful for your first code draft, but your submission must not do this}).
+
+    \item (Easy) Infer the value of the feature from all the other values of that feature (e.g., fill it in with the mean, median, or mode of the feature. Think about which of these is the best choice and why).
+
+    \item (Hard, but more powerful). Use $k$-nearest neighbors to impute feature values based on the nearest neighbors of a data point. In your distance metric you will need to define the distance to a missing value. 
+
+    \item (Hardest, but more powerful) Implement within your decision tree functionality to handle missing feature values based on the current node. There are many ways this can be done. You might infer missing values based on the mean/median/mode of the feature values of data points sorted to the current node. Another possibility is assigning probabilities to each possible value of the missing feature, then sorting fractional (weighted) data points to each child (you would need to associate each data point with a weight in the tree).
+    \end{enumerate}
+\end{enumerate}
+
+\textbf{For Python:}
+
+It is recommended you use the following classes to write, read, and process data:
+
+\begin{verbatim}
+csv.DictReader
+sklearn.feature_extraction.DictVectorizer (vectorizing categorical variables)
+    (There's also sklearn.preprocessingOneHotEncoder, but it's much less clean)
+sklearn.preprocessing.LabelEncoder
+    (if you choose to discretize but not vectorize categorical variables)
+sklearn.preprocessing.Imputer
+    (for inferring missing feature values in the preprocessing phase)
+\end{verbatim}
+
+If you use \verb+csv.DictReader+, it will automatically parse out the header line in the \verb+csv+ file (first line of the file) and assign values to fields in a dictionary. This can then be consumed by \verb+DictVectorizer+ to binarize categorical variables.
+
+To speed up your work, you might want to store your cleaned features in a file, so that you don't need to preprocess every time you run your code.
+
+
+\subsection*{Approximate Expected Performance}
+For spam, with a single decision tree, we got $79.9\%$ validation accuracy.
+With a random forest, we get around $80.4\%$ validation accuracy on Titanic. You might not do quite this well. We will post cutoffs on Piazza.
+
+\subsection*{Suggested Architecture}
+This is a complicated coding project. You should put in some thought about how to structure your program so your decision trees don't end up as horrific forest fires of technical debt. Here is a rough, \textbf{optional} spec that only covers the barebones decision tree structure. This is only for your benefit---writing clean code will make your life easier, but we won't grade you on it. There are many different ways to implement this.
+
+Your decision trees ideally should have a well-encapsulated interface like this:
+
+\begin{verbatim}
+	classifier = DecisionTree(params)
+	classifier.train(train_data, train_labels)
+	predictions = classifier.predict(test_data)
+\end{verbatim}
+
+where \verb|train_data| and \verb|test_data| are 2D matrices (rows are data, columns are features).
+
+A decision tree (or \textbf{DecisionTree}) is a binary tree composed of \textbf{Nodes}. You first initialize it with the necessary parameters (which depend on what techniques you implement). As you train your tree, your tree should create and configure \textbf{Nodes} to use for classification and store these nodes internally. Your \textbf{DecisionTree} will store the root node of the resulting tree so you can use it in classification.
+
+Each \textbf{Node} has left and right pointers to its children, which are also nodes, though some (like leaf nodes) won't have any children. Each node has a split rule that, during classification, tells you when you should continue traversing to the left or to the right child of the node. Leaf nodes, instead of containing a split rule, should simply contain a label of what class to classify a data point as. Leaf nodes can either be a special configuration of regular \textbf{Nodes} or an entirely different class.
+
+\textbf{Node fields:}
+\begin{itemize}
+	\item \verb|split_rule|: A length 2 tuple that details what feature to split on at a node, as well as the threshold value at which you should split. The former can be encoded as an integer index into your data point's feature vector.
+	\item \verb|left|: The left child of the current node.
+	\item \verb|right|: The right child of the current node.
+	\item \verb|label|: If this field is set, the \textbf{Node} is a leaf node, and the field contains the label with which you should classify a data point as, assuming you reached this node during your classification tree traversal. Typically, the label is the mode of the labels of the training data points arriving at this node.
+\end{itemize}
+
+\textbf{DecisionTree methods:}
+\begin{itemize}
+    \item \verb|entropy(labels)|: A method that takes in the labels of data stored at a node and compute the entropy for the distribution of the labels.
+    
+    \item \verb|information_gain(features, labels, threshold)|: A method that takes in some feature of the data, the labels and a threshold, and compute the information gain of a split using the threshold. 
+    
+	\item \verb|entropy(label)|: A method that takes in the labels of data stored at a node and compute the entropy (or Gini impurity).
+
+	
+	\item \verb|fit(data, labels)|: Grows a decision tree by constructing nodes. Using the entropy and segmenter methods, it attempts to find a configuration of nodes that best splits the input data. This function figures out the split rules that each node should have and figures out when to stop growing the tree and insert a leaf node. There are many ways to implement this, but eventually your DecisionTree should store the root node of the resulting tree so you can use the tree for classification later on. Since the height of your DecisionTree shouldn't be astronomically large (you may want to cap the height---if you do, the max height would be a hyperparameter), this method is best implemented recursively.
+	\item \verb|predict(data)|: Given a data point, traverse the tree to find the best label to classify the data point as. Start at the root node you stored and evaluate split rules at each node as you traverse until you reach a leaf node, then choose that leaf node's label as your output label.
+\end{itemize}
+
+Random forests can be implemented without code duplication by storing groups of decision trees. You will have to train each tree on different subsets of the data (data bagging) and train nodes in each tree on different subsets of features (attribute bagging). Most of this functionality should be handled by a random forest class, except attribute bagging, which may need to be implemented in the decision tree class. Hopefully, the spec above gives you a good jumping-off point as you start to implement your decision trees. Again, it's highly recommended to think through design before coding.
+
+Happy hacking!

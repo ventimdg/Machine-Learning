@@ -1,0 +1,9 @@
+Dominic Ventimiglia 
+3035572695
+Kaggle Username: Dominic Ventimiglia
+
+Random Seeds: I used Random Seed 10 for nearly everything. However, in SGD (3.4, 3.5, 3.6) I used a shuffled list of integers to randomly choose which datapoint I was using for the update in that iteration. In the first time around, I used random seed 10 to shuffle the list. For the rest of the time I was training, once I exhausted all datapoints, I created a new list and reshuffled and the seed I used for all of these shuffles is the iteration number. I believe I only needed to reshuffle once, so the only other random seed that should have been used is 5000 
+
+Instructions:
+
+All you have to do is press the run all button. Just make sure that the data file is in the same folder as the notebook file. It should take about three minutes to run and will produce all of the plots and will create the kaggle submission csv automatically

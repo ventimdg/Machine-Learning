@@ -1,0 +1,36 @@
+\Question{Random Forest Motivation}
+Ensemble learning is a general technique to combat overfitting, by combining the predictions of many varied models into a single prediction based on their average or majority vote.
+\begin{Parts} 
+\Part
+\textbf{The motivation of averaging.} Consider a set of uncorrelated random variables $\{Y_i\}_{i=1}^n$ with mean $\mu$ and variance $\sigma^2$. Calculate the expectation and variance of their average. (In the context of ensemble methods, these $Y_i$'s are analogous to the prediction made by classifier $i$.)
+
+\begin{solution}
+Your solution here.
+\end{solution}
+
+\Part
+\textbf{Ensemble Learning – Bagging.} In lecture, we covered bagging (Bootstrap AGGregatING). Bagging is a randomized method for creating many different learners from the same data set.
+
+Given a training set of size $n$, generate $T$ random subsamples, each of size $n'$, by sampling with replacement. Some points may be chosen multiple times, while some may not be chosen at all. If $n' = n$, around $63\%$ are chosen, and the remaining $37\%$ are called out-of-bag (OOB) sample points.
+\begin{enumerate}[(i)]
+	\item Why $63\%$? 
+	\textit{Hint: when $n$ is very large, what is the probability that a sample point won't be selected?}
+        
+        \begin{solution}
+            Your solution here.
+        \end{solution}
+	
+	\item If we use bagging to train our model, how do you recommend we choose the hyperparameter $T$? (Recall, $T$ is the number of decision trees in the ensemble and the number of subsamples; typically, a dozen to several thousand trees are used, depending on the size and nature of the training set.)             
+        \begin{solution}
+            Your solution here.
+        \end{solution}
+\end{enumerate}
+
+\Part
+In part (a), we see that averaging reduces variance for uncorrelated classifiers. Real-world prediction will of course not be completely uncorrelated, but reducing correlation among decision trees will generally reduce the final variance. Reconsider a set of correlated random variables $\{Z_i\}_{i=1}^n$ with mean $\mu$ and variance $\sigma^2$, where each $Z_i \in \mathbb{R}$ is a scalar. Suppose $\forall i \neq j$, $\operatorname{Corr}(Z_i, Z_j) = \rho$. Calculate the variance of their average.
+
+\begin{solution}
+    Your solution here.
+\end{solution}
+
+\end{Parts}
